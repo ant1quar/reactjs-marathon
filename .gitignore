@@ -1,5 +1,4 @@
 node_modules/
 .idea/
 dist/
-src/**.d.ts
 yarn-error.log
