@@ -1,3 +1,9 @@
-.header{
-    font-size: 64px ;
+@import '~normalize.scss/normalize';
+:root {
+  --text-color: #212121;
+  --main-color: #f5db13;
+  --hover-speed: 100ms;
+}
+.main {
+  background: linear-gradient(180deg, var(--main-color) 0%, #f2b807 100%);
 }

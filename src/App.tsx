@@ -1,15 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
 import s from './App.module.scss';
-import Index from './components/footer';
-import Index from './components/header';
+import Footer from './components/footer';
+import Header from './components/header';
 
 const App = () => {
   return (
     <>
-      <Index />
-      <div className={cn(s.header, 'color')}>This is div!</div>
-      <Index />
+      <Header />
+      <div className={cn(s.main)}>This is div!</div>
+      <Footer />
     </>
   );
 };

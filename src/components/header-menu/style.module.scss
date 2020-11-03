@@ -1,0 +1,30 @@
+.menu {
+  display: flex;
+  align-items: center;
+  font-size: 1.5625rem;
+}
+.item {
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+.text {
+  position: relative;
+}
+.text:after {
+  content: '';
+  display: block;
+  border-radius: 3px;
+  width: 0;
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  transition: width 100ms linear;
+  bottom: -1rem;
+  transform: translateX(-50%);
+  background: var(--text-color);
+}
+.item:hover .text:after {
+  width: 100%;
+}
