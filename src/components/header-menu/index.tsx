@@ -12,7 +12,7 @@ const HeaderMenu = () => {
   return (
     <nav className={s.menu}>
       {menu.map((item) => (
-        <a href={item.link} className={s.item}>
+        <a href={item.link} key={item.link} className={s.item}>
           <span className={s.text}>{item.text}</span>
         </a>
       ))}
