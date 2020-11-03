@@ -8,7 +8,7 @@ const Header = () => {
     <header className={s.header}>
       <div className={cn('wrapper', s.headerWrapper)}>
         <a href="/" className={s.link}>
-          <img src="public/img/logo.svg" className={s.logo} />
+          <img src="public/img/logo.svg" alt="logo" className={s.logo} />
         </a>
         <HeaderMenu />
       </div>
