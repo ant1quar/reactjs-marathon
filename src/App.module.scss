@@ -15,6 +15,9 @@
   display: block;
 }
 :global {
+  body{
+    font-family: 'Karla', sans-serif;
+  }
   .wrapper {
     max-width: var(--content-width);
     margin: 0 auto;
