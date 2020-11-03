@@ -5,5 +5,8 @@
   --hover-speed: 100ms;
 }
 .main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background: linear-gradient(180deg, var(--main-color) 0%, #f2b807 100%);
 }
