@@ -1,0 +1,32 @@
+@import '~normalize.scss/normalize';
+:root {
+  --text-color: #212121;
+  --main-color: #f5db13;
+  --hover-speed: 100ms;
+  --content-width: 1200px;
+}
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: linear-gradient(180deg, var(--main-color) 0%, #f2b807 100%);
+}
+.mainWrapper {
+  display: block;
+}
+:global {
+  body{
+    font-family: 'Karla', sans-serif;
+  }
+  .wrapper {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1em;
+    box-sizing: border-box;
+  }
+  .text-link {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+}
