@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import s from './footer.module.scss';
+import s from './style.module.scss';
 
 const Footer = () => {
   return (
