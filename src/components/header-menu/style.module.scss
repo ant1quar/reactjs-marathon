@@ -25,6 +25,7 @@
   transform: translateX(-50%);
   background: var(--text-color);
 }
+.itemActive .text:after,
 .item:hover .text:after {
   width: 100%;
 }

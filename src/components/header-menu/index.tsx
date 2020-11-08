@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import cn from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
 import s from './style.module.scss';
 import MenuItem from '../../models/menu';
 
 const HeaderMenu = () => {
+  const location = useLocation();
   const menu: MenuItem[] = [
     { text: 'Home', link: '/' },
     { text: 'Pokédex', link: '/pokedex' },
@@ -13,7 +15,10 @@ const HeaderMenu = () => {
   return (
     <nav className={s.menu}>
       {menu.map((item) => (
-        <Link to={item.link} key={item.link} className={s.item}>
+        <Link
+          to={item.link}
+          key={item.link}
+          className={location.pathname == item.link ? cn(s.item, s.itemActive) : s.item}>
           <span className={s.text}>{item.text}</span>
         </Link>
       ))}
