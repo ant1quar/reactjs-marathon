@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './style.module.scss';
 import MenuItem from '../../models/menu';
 
 const HeaderMenu = () => {
   const menu: MenuItem[] = [
-    { text: 'Home', link: 'Home' },
-    { text: 'Pokédex', link: '/ookedex' },
+    { text: 'Home', link: '/' },
+    { text: 'Pokédex', link: '/pokedex' },
     { text: 'Legendaries', link: '/legendaries' },
     { text: 'Documentation', link: '/documentation' },
   ];
   return (
     <nav className={s.menu}>
       {menu.map((item) => (
-        <a href={item.link} key={item.link} className={s.item}>
+        <Link to={item.link} key={item.link} className={s.item}>
           <span className={s.text}>{item.text}</span>
-        </a>
+        </Link>
       ))}
     </nav>
   );

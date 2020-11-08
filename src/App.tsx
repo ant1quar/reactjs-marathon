@@ -1,21 +1,24 @@
 import React from 'react';
-import cn from 'classnames';
-import s from './App.module.scss';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Footer from './components/footer';
 import Header from './components/header';
-import Button from './components/button';
+import Homepage from './pages/home';
+import Pokedex from './pages/pokedex';
+import NotFound from './pages/404';
+
+import s from './App.module.scss';
 
 const App = () => {
   return (
-    <main className={s.main}>
-      <Header />
-      <div className={cn('wrapper', s.mainWrapper)}>
-        <Button onClick={() => {}} type="allow" disabled>
-          TEST BUTTON
-        </Button>
-      </div>
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <main className={s.main}>
+        <Header />
+        <Route path="/" exact component={Homepage} />
+        <Route path="/pokedex" component={Pokedex} />
+        <Route path="*" component={NotFound} />
+        <Footer />
+      </main>
+    </BrowserRouter>
   );
 };
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import s from './style.module.scss';
 import HeaderMenu from '../header-menu';
@@ -8,9 +9,9 @@ const Header = () => {
   return (
     <header className={s.header}>
       <div className={cn('wrapper', s.headerWrapper)}>
-        <a href="/" className={s.link}>
+        <Link to="/" className={s.link}>
           <img src={Logo} alt="logo" className={s.logo} />
-        </a>
+        </Link>
         <HeaderMenu />
       </div>
     </header>
