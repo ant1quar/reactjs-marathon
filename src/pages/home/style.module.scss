@@ -1,0 +1,20 @@
+.root {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 128px 0;
+}
+.textWrapper {
+  display: block;
+}
+.title {
+  color: var(--dark);
+}
+.text {
+  margin: 0;
+  padding: 64px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+}

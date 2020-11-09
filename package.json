@@ -11,9 +11,11 @@
   "author": "Ivan Krivonos <krivonos.ivann@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "typescript": "^4.0.3"
   },
   "devDependencies": {

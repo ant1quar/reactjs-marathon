@@ -1,16 +1,25 @@
 import React from 'react';
-import cn from 'classnames';
-import s from './App.module.scss';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Footer from './components/footer';
 import Header from './components/header';
+import Homepage from './pages/home';
+import Pokedex from './pages/pokedex';
+
+import s from './App.module.scss';
+import Layout from './pages/layout';
 
 const App = () => {
   return (
-    <main className={s.main}>
-      <Header />
-      <div className={cn('wrapper', s.mainWrapper)}>content</div>
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <main className={s.main}>
+        <Header />
+        <Layout>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/pokedex" component={Pokedex} />
+        </Layout>
+        <Footer />
+      </main>
+    </BrowserRouter>
   );
 };
 export default App;
