@@ -1,5 +1,6 @@
 .root {
   margin: 0;
+  font-weight: normal;
 }
 .h1 {
   font-style: normal;
@@ -27,4 +28,13 @@
 .h6 {
   font-size: 12px;
   line-height: 14px;
+}
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
 }
