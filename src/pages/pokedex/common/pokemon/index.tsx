@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import Heading from '../../../../components/heading';
 
 import s from './style.module.scss';
@@ -24,7 +25,7 @@ const PokemonCard: React.FC<PokemonCardInterface> = ({ pokemon }) => {
         </div>
         <div className={s.labelWrap}>
           {pokemon.types.map((t) => (
-            <span key={t} className={s.label}>
+            <span key={t} className={cn(s.label, s[t])}>
               {t}
             </span>
           ))}

@@ -7,6 +7,7 @@ type PokemonAbilities =
   | 'run-away'
   | 'torrent'
   | 'rain-dish';
+
 type PokemonType = 'grass' | 'poison' | 'bug' | 'water' | 'fire' | 'flying';
 
 interface PokemonStats {

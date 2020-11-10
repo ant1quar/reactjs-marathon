@@ -6,7 +6,6 @@
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  margin-bottom: 45px;
   cursor: pointer;
   transition: all ease-in-out 0.15s;
 
@@ -81,7 +80,6 @@
 }
 
 .label {
-  background: #f28f16;
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
   height: 15px;
@@ -107,4 +105,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.bug,
+.grass {
+  background: #70a83b;
+}
+.poison {
+  background: #a974bc;
+}
+.water {
+  background: #76aadb;
+}
+.fire {
+  background: #f76545;
+}
+.flying {
+  background: #76aadb;
 }
