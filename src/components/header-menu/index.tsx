@@ -9,7 +9,7 @@ const HeaderMenu = () => {
   return (
     <nav className={s.menu}>
       {GLOBAL_ROUTES.map(({ link, title }) => (
-        <A href={link} key={link} className={link == path ? cn(s.item, s.itemActive) : s.item}>
+        <A href={link} key={link} className={link === path ? cn(s.item, s.itemActive) : s.item}>
           <span className={s.text}>{title}</span>
         </A>
       ))}

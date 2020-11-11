@@ -1,9 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 import Heading from '../../../../components/heading';
+import { Pokemon } from '../../../../models/pokemon';
 
 import s from './style.module.scss';
-import { Pokemon } from '../../../../models/pokemon';
 
 interface PokemonCardInterface {
   pokemon: Pokemon;
