@@ -7,3 +7,10 @@ export interface Route {
 export interface AppRoutes {
   [key: string]: () => JSX.Element;
 }
+
+export enum RoutuesList {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  DOCUMENTATION = '/documentation',
+  LEGENDARIES = '/legendaries',
+}
