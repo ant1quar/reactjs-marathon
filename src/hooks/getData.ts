@@ -1,26 +1,18 @@
 import { useEffect, useState } from 'react';
-import { Pokemon } from '../models/pokemon';
 import req from '../utils/request';
+import { QueryParams } from '../models/route';
 
-interface PokemonsHook {
-  total: number | null;
-  pokemons: Pokemon[] | null;
-  error: boolean;
-  loading: boolean;
-}
-const useData = (endpoint: string, query: { [key: string]: string }, deps: any[]): PokemonsHook => {
-  const [total, setTotal] = useState(null);
-  const [pokemons, setPokemons] = useState(null);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
+const useData = <T>(endpoint: string, query: QueryParams, deps: any[]) => {
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     setLoading(true);
     setError(false);
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       try {
-        const data = await req(endpoint, query);
-        setTotal(data.total);
-        setPokemons(data.pokemons);
+        const data = await req<T>(endpoint, query);
+        setData(data);
       } catch {
         setError(true);
       } finally {
@@ -30,8 +22,7 @@ const useData = (endpoint: string, query: { [key: string]: string }, deps: any[]
     getData();
   }, deps);
   return {
-    total,
-    pokemons,
+    data,
     loading,
     error,
   };

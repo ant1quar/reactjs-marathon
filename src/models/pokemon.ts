@@ -32,3 +32,7 @@ export interface Pokemon {
   order: number;
   weight: number;
 }
+export interface PokemonsData {
+  total: number | null;
+  pokemons: Pokemon[] | null;
+}

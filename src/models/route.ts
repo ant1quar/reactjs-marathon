@@ -14,3 +14,6 @@ export enum RoutuesList {
   DOCUMENTATION = '/documentation',
   LEGENDARIES = '/legendaries',
 }
+export interface QueryParams {
+  name?: string;
+}
