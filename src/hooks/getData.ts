@@ -12,6 +12,7 @@ const useData = <T>(endpoint: string, query: QueryParams, deps: any[]) => {
     const getData = async (): Promise<void> => {
       try {
         const data = await req<T>(endpoint, query);
+
         setData(data);
       } catch {
         setError(true);

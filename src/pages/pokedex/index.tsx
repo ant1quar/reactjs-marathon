@@ -7,13 +7,13 @@ import useData from '../../hooks/getData';
 import useDebounce from '../../hooks/useDebounce';
 import { Pokemon, PokemonsData } from '../../models/pokemon';
 import { QueryParams } from '../../models/route';
+import transformPokemonModel from '../../utils/transformPokemon';
 
 const Pokedex = () => {
   const [search, setSearch] = useState<string>('');
   const [query, setQuery] = useState<QueryParams>({});
   const debouncedSearch = useDebounce(search, 300);
   const { data, loading } = useData<PokemonsData>('getPokemons', query, [debouncedSearch]);
-
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
     setQuery((s) => ({
@@ -28,7 +28,7 @@ const Pokedex = () => {
       </Heading>
       <Filters search={search} handleSearchChange={handleSearchChange} />
       <div className={s.desk}>
-        {!loading && data?.pokemons?.map((p: Pokemon) => <PokemonCard key={p.id} pokemon={p} />)}
+        {!loading && data?.pokemons?.map((p: Pokemon) => <PokemonCard key={p.id} pokemon={transformPokemonModel(p)} />)}
       </div>
     </div>
   );
