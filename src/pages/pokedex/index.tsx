@@ -4,11 +4,13 @@ import s from './style.module.scss';
 import Heading from '../../components/heading';
 import Filters from './common/filters';
 import useData from '../../hooks/getData';
+import useDebounce from '../../hooks/useDebounce';
 
 const Pokedex = () => {
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState({});
-  const { pokemons, total, loading } = useData('getPokemons', query, [search]);
+  const debouncedSearch = useDebounce(search, 300);
+  const { pokemons, total, loading } = useData('getPokemons', query, [debouncedSearch]);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
