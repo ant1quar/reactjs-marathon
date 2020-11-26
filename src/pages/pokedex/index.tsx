@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import PokemonCard from './common/pokemon';
 import s from './style.module.scss';
 import Heading from '../../components/heading';
 import Filters from './common/filters';
-import usePokemons from '../../hooks/pokemons';
+import useData from '../../hooks/getData';
 
 const Pokedex = () => {
-  const { pokemons, total, loading } = usePokemons();
+  const [search, setSearch] = useState('');
+  const [query, setQuery] = useState({});
+  const { pokemons, total, loading } = useData('getPokemons', query, [search]);
+
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    setQuery((s) => ({
+      ...s,
+      name: event.target.value,
+    }));
+  };
   return (
     <div className={s.root}>
-      {loading ? (
-        <Heading size="h2" align="center">
-          Loading...
-        </Heading>
-      ) : (
-        <>
-          <Heading size="h2" align="center">
-            {total} <strong>Pokemons</strong> for you to choose your favorite
-          </Heading>
-          <Filters />
-          <div className={s.desk}>
-            {pokemons.map((p) => (
-              <PokemonCard key={p.id} pokemon={p} />
-            ))}
-          </div>
-        </>
-      )}
+      <Heading size="h2" align="center">
+        {!loading && total} <strong>Pokemons</strong> for you to choose your favorite
+      </Heading>
+      <Filters search={search} handleSearchChange={handleSearchChange} />
+      <div className={s.desk}>
+        {!loading && pokemons && pokemons.map((p) => <PokemonCard key={p.id} pokemon={p} />)}
+      </div>
     </div>
   );
 };
