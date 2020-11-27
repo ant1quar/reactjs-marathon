@@ -1,11 +1,13 @@
+import { PropsWithChildren } from 'react';
+
 export interface Route {
   link: string;
   title: string;
-  component: () => JSX.Element;
+  component: (props: PropsWithChildren<any>) => JSX.Element;
 }
 
 export interface AppRoutes {
-  [key: string]: () => JSX.Element;
+  [key: string]: (props: PropsWithChildren<any>) => JSX.Element;
 }
 
 export enum RoutuesList {
@@ -13,6 +15,7 @@ export enum RoutuesList {
   POKEDEX = '/pokedex',
   DOCUMENTATION = '/documentation',
   LEGENDARIES = '/legendaries',
+  POKEMON = '/pokedex/:id',
 }
 export interface QueryParams {
   name?: string;
