@@ -4,21 +4,21 @@ import req from '../utils/request';
 
 interface PokemonsHook {
   total: number | null;
-  pokemons: Pokemon[];
+  pokemons: Pokemon[] | null;
   error: boolean;
   loading: boolean;
 }
-const usePokemons = (): PokemonsHook => {
+const useData = (endpoint: string, query: { [key: string]: string }, deps: any[]): PokemonsHook => {
   const [total, setTotal] = useState(null);
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
     setError(false);
-    const getPokemons = async () => {
+    const getData = async () => {
       try {
-        const data = await req('getPokemons', {});
+        const data = await req(endpoint, query);
         setTotal(data.total);
         setPokemons(data.pokemons);
       } catch {
@@ -27,8 +27,8 @@ const usePokemons = (): PokemonsHook => {
         setLoading(false);
       }
     };
-    getPokemons();
-  }, []);
+    getData();
+  }, deps);
   return {
     total,
     pokemons,
@@ -36,4 +36,4 @@ const usePokemons = (): PokemonsHook => {
     error,
   };
 };
-export default usePokemons;
+export default useData;
