@@ -19,4 +19,5 @@ export enum RoutuesList {
 }
 export interface QueryParams {
   name?: string;
+  id?: number;
 }
